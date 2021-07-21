@@ -5,22 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles.css">
 </head>
 
 <body>
+    <div class="nav-bar"></div>
     <div id="app">
-        <input v-model="user">
-        <input v-model="comment">
-        <button @click="save">Save</button>
-        <ul>
-            <li v-for="msg in message">
-                <p>{{ msg.user }}: {{ msg.comment }}</p>
-            </li>
-        </ul>
+        <product @add-to-cart="addToCart"></product>
+        <div class="cart">
+            <p>Cart {{ cart.length }} </p>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="./hello.js"></script>
+    <script src="./test1.js"></script>
 </body>
 
 </html>

@@ -62,10 +62,5 @@ let app = new Vue({
     data:{
         cart:0,
     },
-    // methods:{
-    //     addToCart() {
-    //         this.$emit("add-to-cart", this.cart);
-    //     },
-    // }
 });
 
