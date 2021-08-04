@@ -1,18 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app">
+    <v-container fluid>
+      <v-row>
+        <v-col cols="4" v-for="b in books" :key="b.bookId">
+          <v-card>
+            <v-img :src="b.cover" max-height="250" contain></v-img>
+            <router-link to="">{{ b.title }}</router-link>
+            <p>{{ b.author }}</p>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import axios from "axios";
 
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
+  data() {
+    return { books: [] };
+  },
+  mounted() {
+    axios
+      .get("/api/books")
+      .then((res) => {
+        console.log(res);
+        this.books = res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+  computed: {
+    bookName() {
+      return "/books/" + this.b.bookId;
+    },
   },
 };
 </script>
