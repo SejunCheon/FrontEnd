@@ -14,7 +14,10 @@ const routes = [
     path: '/books',
     component: Books
   },
-  
+  {
+    path: '/books/:bookId',
+    component: Books,
+  },
 ]
 
 const router = new VueRouter({
